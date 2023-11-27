@@ -18,6 +18,9 @@ pd.set_option("display.max_columns", None)
 ### CONSTANTS ###
 GOOGLE_API_KEY = <SOME API STRING>
 
+
+CITY = "New York"
+STATE = "NY"
 MAX_MONTHLY_PRICE = 6000
 MIN_BEDS = 4
 MIN_BATHS = 2
@@ -26,19 +29,15 @@ AC = True
 MIN_SQ_FT = 2000
 
 # zillow search url
-LISTING_URL = f"https://www.zillow.com/new-york-ny/rentals/?" \
-              f"searchQueryState=%7B%22pagination%22%3A%7B%7D%2C%22mapBounds%22%3A%7B%22" \
-              f"north%22%3A41.06799488951523%2C%22" \
-              f"south%22%3A40.32564014061633%2C%22" \
-              f"east%22%3A-73.26419638085937%2C%22" \
-              f"west%22%3A-74.69516561914062%7D%2C%22" \
+LISTING_URL = f"https://www.zillow.com/{CITY.lower().replace(" ", "-")}-{STATE.lower()}/rentals/?" \
+              f"searchQueryState=%7B%22pagination%22%3A%7B%7D%2C%22" \
               f"regionSelection%22%3A%5B%7B%22" \
               f"regionId%22%3A6181%2C%22" \
               f"regionType%22%3A6%7D%5D%2C%22" \
               f"isMapVisible%22%3Atrue%2C%22" \
               f"filterState%22%3A%7B%22" \
               f"mapZoom%22%3A11%2C%22" \
-              f"usersSearchTerm%22%3A%22Portland%20OR%22%2C%22" \
+              f"usersSearchTerm%22%3A%22{CITY.title().replace(" ", "%20")}%20{STATE.upper()}%22%2C%22" \
               f"fore%22%3A%7B%22value%22%3Afalse%7D%2C%22" \
               f"lau%22%3A%7B%22value%22%3A{str(LAUNDRY).lower()}%7D%2C%22" \
               f"ah%22%3A%7B%22value%22%3Atrue%7D%2C%22" \
